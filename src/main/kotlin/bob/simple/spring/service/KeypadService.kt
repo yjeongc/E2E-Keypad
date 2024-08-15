@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 @Service
 class KeypadService {
 
-    fun generateKeypad(): KeypadResponseDto {
+    fun generateKeypadData(): KeypadResponseDto {
         val keypadId = EncryptionUtils.generateKeypadId()
         val timestamp = EncryptionUtils.getTimestamp()
         val layout = KeypadUtils.generateKeypadLayout()
-        val hash = EncryptionUtils.generateHmac(keypadId + timestamp + EncryptionUtils.SECRET_KEY)
+        val hash = EncryptionUtils.generateHmac(keypadId + timestamp)  // Now using public key bytes
 
         val layoutDto = layout.map { KeypadDigitDto(it.digit, it.image) }
         return KeypadResponseDto(keypadId, timestamp, hash, layoutDto)

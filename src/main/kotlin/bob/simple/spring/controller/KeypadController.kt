@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 class KeypadController(private val keypadService: KeypadService) {
 
     @GetMapping
-    fun getKeypad(): KeypadResponseDto {
-        return keypadService.generateKeypad()
+    fun getKeypadData(): KeypadResponseDto {
+        return keypadService.generateKeypadData()
     }
 }

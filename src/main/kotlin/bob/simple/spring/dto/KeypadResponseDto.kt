@@ -9,5 +9,5 @@ data class KeypadResponseDto(
 
 data class KeypadDigitDto(
     val digit: Int,
-    val image: String
+    val image: String // Base64 encoded image data
 )
